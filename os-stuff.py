@@ -29,8 +29,9 @@ if __name__ == '__main__':
     from   sys import argv
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('-w','--walk--',dest='walker_path',default='..',help='walk ')
-    parser.add_argument('-x', '--exclude--', dest='excluded_folders', default=['.git'], nargs='*', help='folder to exclude')
+    parser.add_argument('-b','--base',dest='base_path',default='..',help='base path')
+    parser.add_argument('-w','--walk',dest='walker_path',default='..',help='walk ')
+    parser.add_argument('-x', '--exclude', dest='excluded_folders', default=['.git'], nargs='*', help='folder to exclude')
     args=parser.parse_args(argv[1:])
     if args.walker_path:
-        path_tree(path=args.walker_path,excludes=args.excluded_folders)
+        path_tree(path=args.walker_path,excludes=args.excluded_folders,base=args.base_path)
